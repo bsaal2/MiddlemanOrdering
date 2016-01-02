@@ -53,6 +53,8 @@ Route::group(['middleware' => ['web']], function () {
     //Dashboard Routes
     Route::group(['middleware'=>['auth']],function(){
         Route::get('dashboard','Dashboard\DashController@index');
+
+        Route::get('profile','Dashboard\DashController@profile');
     });
 
 
