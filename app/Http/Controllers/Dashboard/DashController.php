@@ -13,6 +13,6 @@ class DashController extends Controller
     //
 
     public function index(){
-        return Auth::user();
+        return view('dashboard.index');
     }
 }

@@ -52,16 +52,49 @@
 
                 </div><!-- /.navbar-collapse -->
 
-                @if(!Auth::user())
                 {{--Nav Bar right menu--}}
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
-                        <li><a href="{!! url('login') !!}" class="btn"><i class="fa fa-sign-in"></i>Login</a></li>
-                        <li><a href="{!! url('register') !!}" class="btn"><i class="fa fa-sign-out"></i>Register</a></li>
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="{!! asset('bootstrap-theme/dist/img/user2-160x160.jpg') !!}" class="user-image" alt="User Image">
+                                <span class="hidden-xs">{!! Auth::user()->email !!}</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header">
+                                    <img src="{!! asset('bootstrap-theme/dist/img/user2-160x160.jpg') !!}" class="img-circle" alt="User Image">
+                                    <p>
+                                        Alexander Pierce - Web Developer
+                                        <small>Member since Nov. 2012</small>
+                                    </p>
+                                </li>
+                                <!-- Menu Body -->
+                                <li class="user-body">
+                                    <div class="col-xs-4 text-center">
+                                        <a href="#">Followers</a>
+                                    </div>
+                                    <div class="col-xs-4 text-center">
+                                        <a href="#">Sales</a>
+                                    </div>
+                                    <div class="col-xs-4 text-center">
+                                        <a href="#">Friends</a>
+                                    </div>
+                                </li>
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="{!! url('logout') !!}" class="btn btn-default btn-flat">Sign out</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div><!-- / .navbar-custom-menu-->
-                @endif
-
             </div><!-- /.container-fluid -->
         </nav>
     </header>
@@ -69,14 +102,14 @@
     @yield('content')
 
 
-<footer class="main-footer">
-    <div class="container">
-        <div class="pull-right hidden-xs">
-            <b>Version</b> 1.0.0
-        </div>
-        <strong>Copyright &copy; 2015-2016 <a href="http://codesastra.com">CodeSastra</a>.</strong> All rights reserved.
-    </div><!-- /.container -->
-</footer>
+    <footer class="main-footer">
+        <div class="container">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 1.0.0
+            </div>
+            <strong>Copyright &copy; 2015-2016 <a href="http://codesastra.com">CodeSastra</a>.</strong> All rights reserved.
+        </div><!-- /.container -->
+    </footer>
 </div><!-- ./wrapper -->
 
 <!-- jQuery 2.1.4 -->

@@ -36,15 +36,24 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('about','Page\PageController@about');
 
     //Authentication Routes
+
     Route::get('login','Auth\AuthController@getLogin');
     Route::post('login','Auth\AuthController@postLogin');
-    Route::get('logout','Auth\AuthController@getLogout');
+
+    Route::get('logout',function(){
+        Auth::logout();
+
+        return redirect('/');
+    });
 
     //Registration Routes
     Route::get('register','Auth\AuthController@getRegister');
     Route::post('register','Auth\AuthController@postRegister');
 
     //Dashboard Routes
-    Route::get('dashboard','Dashboard\DashController@index');
+    Route::group(['middleware'=>['auth']],function(){
+        Route::get('dashboard','Dashboard\DashController@index');
+    });
+
 
 });
